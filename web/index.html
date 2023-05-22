@@ -1,0 +1,2490 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TEST</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			background: linear-gradient(to bottom right, #FF0099, #493240);
+		}
+.box {
+  width: 300px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 20px;
+  text-align: center;
+  font-weight: 900;
+  color: #000000;
+  font-family: arial;
+  position:relative;
+}
+.sb1:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 12px solid #fff;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #fff;
+  border-bottom: 10px solid transparent;
+  right: -20px;
+  bottom: 50px;
+}
+.sb2:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 12px solid transparent;
+  border-right: 10px solid #fff;
+  border-top: 10px solid #fff;
+  border-bottom: 10px solid transparent;
+  left: -19px;
+  bottom: 50px;
+}
+.slider-container {
+  display: none;
+}
+.visible {
+  display: block;
+}
+.slider-wrapper {
+  display: flex;
+  align-items: center;
+text-align:center;
+}
+.slider-wrapper:not(:last-child) {
+  margin-bottom: 10px;
+}
+.slider-wrapper h3 {
+  margin-right: 10px;
+  font-size: 18px;
+  color: #000000;
+}
+/* Base styles for the range slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 50%;
+  height: 20px;
+  margin: 0;
+  padding: 30px;
+  background: transparent;
+}
+
+/* Styling for the thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  top: -7px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* Gradient styling for the track */
+input[type="range"]::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, #333333, #dd1818);
+  height: 20px;
+  border-radius: 15px;
+}
+
+/* Styling for the track fill */
+input[type="range"]::-webkit-slider-thumb {
+  background: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+}
+		.container {
+			border: 1px solid #000;
+			padding: 20px;
+			margin: 50px auto;
+			max-width: 600px;
+		}
+		.container h2 {
+			margin-top: 0;
+			font-size: 24px;
+			text-align: center;
+		}
+		.container img {
+			float: left;
+			margin-right: 20px;
+			max-width: 50%;
+		}
+		.container h3 {
+			margin-top: 0;
+			font-size: 18px;
+			text-align: center;
+		}
+		.container p {
+			font-size: 16px;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+.results {
+  width: 100%;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 5px;
+  position: relative;
+}
+
+.results-bar {
+  width: 0;
+  height: 100%;
+  background-color: #007bff;
+  border-radius: 5px;
+}
+
+.results-value {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-weight: bold;
+}
+
+#next-btn {
+	visibility: visible;
+	}
+button {
+			display: block;
+			margin: 20px auto 0;
+			padding: 10px 20px;
+			border-radius: 5px;
+			border: none;
+			background: #fff;
+			color: #000;
+			font-size: 1.5em;
+			cursor: pointer;
+			margin-bottom: 20px;
+		}
+		
+button:hover {
+			background: #000;
+			color: #fff;
+		}
+h2 {
+	text-align: center;
+	color: #fff;
+
+}
+		.progress {
+			width: 500px;
+			height: 20px;
+			background-color: #ddd;
+			border-radius: 10px;
+			position: relative;
+			margin: auto;
+			margin-top: 10px;	
+		}
+		.progress-fill {
+			height: 100%;
+			background-color: #007bff;
+			border-radius: 10px;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+p {
+	color: #fff;
+	font-size: 20px
+}
+label {
+	color: #fff;
+	font-size: 20px
+}
+.results {
+  width: 100%;
+  position: relative;
+}
+    </style>
+  </head>
+  <body> 
+	<div class="progress">
+		<div class="progress-fill"></div>
+	</div>
+<div class="slider-container slider-container-sub visible">
+  <h2>GENERAL</h2>
+  <div class="radio-group">
+  <p>Gender:</p>
+  <input type="radio" id="gender1" name="gender" value="1">
+  <label for="gender1">Female</label><br>
+  <input type="radio" id="gender2" name="gender" value="1">
+  <label for="gender2">Male</label><br>  
+  <input type="radio" id="gender3" name="gender" value="1">
+   <label for="gender3">Non-Binary</label><br>  
+  <input type="radio" id="gender4" name="gender" value="1">
+  <label for="gender4">Prefer not to say</label><br><br>
+  <p>Sexual orientation:</p>
+  <input type="radio" id="or1" name="orientation" value="1">
+  <label for="or1">Heterosexual</label><br>
+  <input type="radio" id="or2" name="orientation" value="1">
+  <label for="or2">Bicurious</label><br>  
+  <input type="radio" id="or3" name="orientation" value="1">
+  <label for="or2">Bisexual</label><br>  
+  <input type="radio" id="or4" name="orientation" value="1">
+  <label for="or4">Lesbian/gay</label><br>
+  <input type="radio" id="or5" name="orientation" value="1">
+  <label for="or5">Other/Prefer not to say</label><br><br>
+  <p>Are you sexually active?</p>
+  <input type="radio" id="ac1" name="active" value="30">
+  <label for="ac1">Yes</label><br>
+  <input type="radio" id="ac2" name="active" value="60">
+  <label for="ac2">No</label><br><br>
+  <p>How many partners have you had?</p>
+  <input type="radio" id="par1" name="partners" value="30">
+  <label for="par1">0</label><br>
+  <input type="radio" id="par2" name="partners" value="60">
+  <label for="par2">1</label><br>
+  <input type="radio" id="par3" name="partners" value="60">
+  <label for="par3">2</label><br>  
+  <input type="radio" id="par4" name="partners" value="100">
+  <label for="par4">3+</label><br><br>
+</div>
+</div>
+<div class="slider-container slider-container-gen">
+  <h2>GENERAL</h2>
+   <div class="slider-wrapper">
+    <div class="box sb1"><h3>During sex I like trying new poses and experiment.</h3></div>
+    <input class="slider" type="range" id="1" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I like traditional poses and less experimenting.</h3></div>
+  </div>
+  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I am willing to try anything once, even if I don't think I will like it.</h3></div>
+    <input class="slider" type="range" id="2" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>There are things I am NOT willing to try even once.</h3></div>
+	</div>
+   <div class="slider-wrapper">
+    <div class="box sb1"><h3>Orgasm is essential for sex to be good.</h3></div>
+    <input class="slider" type="range" id="3" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>Orgasm is NOT essential for sex to be good.</h3></div>
+	</div>
+   <div class="slider-wrapper">
+    <div class="box sb1"><h3>I'm easily aroused.</h3></div>
+    <input class="slider" type="range" id="4" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I'm NOT easily aroused.</h3></div>
+	</div>
+   <div class="slider-wrapper">
+    <div class="box sb1"><h3>I will have sex with someone only after we form a romantic bond.</h3></div>
+    <input class="slider" type="range" id="5" min="0" max="100" value="50"step="10">
+    <div class="box sb2"><h3>I could have sex with someone even if we don't share a romantic bond.</h3></div>
+	</div>
+	<div class="slider-wrapper">
+    <div class="box sb1"><h3>With my life partner, I will be totally open about my sexual past.</h3></div>
+    <input class="slider" type="range" id="6" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>There are things about my sexual past I won't tell my life partner.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I care more about my partner's pleasure than my own.</h3></div>
+    <input class="slider" type="range" id="7" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>My own sexual pleasure comes before a partner’s pleasure.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>The soonest I could have sex with someone is when we're in a relationship.</h3></div>
+    <input class="slider" type="range" id="8" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I could have sex with someone as soon as our first meeting.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Sex is just about the intercourse or orgasm.</h3></div>
+    <input class="slider" type="range" id="9" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>Sex is about way more than intercourse or orgasm.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I am very motivated to meet my partner’s sexual needs.</h3></div>
+    <input class="slider" type="range" id="10" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I don't think about my partner’s sexual needs.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I am very direct about voicing my desires during sex.</h3></div>
+    <input class="slider" type="range" id="11" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I don't typically voice my desires during sex.</h3></div>
+	</div>
+</div>
+<div class="slider-container slider-container-genn">
+  <h2>GENERAL</h2>
+   <div class="slider-wrapper">
+    <div class="box sb1"><h3>I like to role-play during sex and really embrace the role.</h3></div>
+    <input class="slider" type="range" id="12" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT like role-playing.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I could be sexually submissive now, and be sexually dominant another time (either to the same, or to another partner).</h3></div>
+    <input class="slider" type="range" id="13" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I tend to lean only to one side.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Anal? YES PLEASE!</h3></div>
+    <input class="slider" type="range" id="14" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I would NEVER do it/try it.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Being in love is necessary for great sex.</h3></div>
+    <input class="slider" type="range" id="15" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>Being in love is NOT necessary for great sex.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I LOVE sex toys and look forward to try new ones.</h3></div>
+    <input class="slider" type="range" id="16" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>Sex toys are NOT my cup of tea.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Having a conversation with my partner about sex is very easy.</h3></div>
+    <input class="slider" type="range" id="17" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>Having a conversation with my partner about sex is uncomfortable.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I enjoy playing a different age than what I technically am.</h3></div>
+    <input class="slider" type="range" id="18" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT enjoy playing a different age.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Bigger is better.</h3></div>
+    <input class="slider" type="range" id="19" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>Size does NOT matter.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>It's NOT a big deal when things I try turn out bad for me. It's part of the risk and it's a necessary part of discovering what works and what doesn't.</h3></div>
+    <input class="slider" type="range" id="20" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>It is a big deal when things I try turn out bad for me.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I don't need physical pleasure from sex: if my partner is enjoying it, that's all I need.</h3></div>
+    <input class="slider" type="range" id="21" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I need physical pleasure from sex.</h3></div>
+	</div>
+ </div>
+<div class="slider-container slider-container-dom">
+  <h2>DOMINANCE/CONTROL</h2>
+  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I like to dominate my partner(s).</h3></div>
+    <input class="slider" type="range" id="22" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT like to dominate.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I like to be completely in charge in the bedroom, and order my partner(s) around.</h3></div>
+    <input class="slider" type="range" id="23" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT like to be completely in charge in the bedroom.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I don't mind a little playful resistance from my partner(s), in the end I'll win anyway.</h3></div>
+    <input class="slider" type="range" id="24" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>Even a little resistance from my partner(s) is a turn off.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I like forcing my partner into submission, much more than them submitting spontaneously.</h3></div>
+    <input class="slider" type="range" id="25" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT like forcing my partner into submission.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I love making my partners do really disgusting things, purely for my own pleasure.</h3></div>
+    <input class="slider" type="range" id="26" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>That's NOT my cup of tea.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Giving care, spoiling my partner, etc. is one of the main things I'm looking for in a relationship.</h3></div>
+    <input class="slider" type="range" id="27" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>Giving care, spoiling my partner, etc. is NOT one of the main things I'm looking for in a relationship.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I enjoy feeling like a predator hunting its prey.</h3></div>
+    <input class="slider" type="range" id="28" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT enjoy feeling like a predator hunting its prey.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>When it comes to sexual acts, my partner's discomfort is pretty much irrelevant if it gives me more pleasure.</h3></div>
+    <input class="slider" type="range" id="29" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>My partner's discomfort is relevant.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I enjoy when my parner(s) playing or acting like a pet animal (dog, cat, pony, etc.)</h3></div>
+    <input class="slider" type="range" id="" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT enjoy when my parner(s) playing or acting like a pet animal.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I enjoy when my parner(s) act different age.</h3></div>
+    <input class="slider" type="range" id="30" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT enjoy when my parner(s) act different age.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I prefer making the sexual decisions for my partner, as this gives me more control.</h3></div>
+    <input class="slider" type="range" id="31" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT prefer making the sexual decisions for my partner.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Ideally, I could command my partner(s), and they'd obey like a puppet no matter what I tell them to do.</h3></div>
+    <input class="slider" type="range" id="32" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT wish to command my partner(s).</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I could not be always dominant or always submissive, I need both.</h3></div>
+    <input class="slider" type="range" id="33" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I want to either be dominant or submissive.</h3></div>
+	</div>
+</div>
+<div class="slider-container slider-container-sub">
+  <h2>SUBMISSION/CONTROL</h2>
+   <div class="slider-wrapper">
+    <div class="box sb1"><h3>I like it when my partner(s) takes on a nurturing and guiding, almost parental role in the relationship.</h3></div>
+    <input class="slider" type="range" id="34" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT like it when my partner(s) takes on a nurturing and guiding role in the relationship.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I like to be dominated, especially in the bedroom. </h3></div>
+    <input class="slider" type="range" id="35" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT like to be dominated.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Receiving care, being spoiled, etc. are some of the main things I'm looking for in a relationship.</h3></div>
+    <input class="slider" type="range" id="36" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>Receiving care, being spoiled, etc. are NOT some of the main things I'm looking for in a relationship.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I like my partner(s) to be completely in charge in the bedroom, ordering me around.</h3></div>
+    <input class="slider" type="range" id="37" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT like my partner(s) to be completely in charge in the bedroom.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Feeling physically overpowered is one of the most liberating sexual feelings.</h3></div>
+    <input class="slider" type="range" id="38" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>Feeling physically overpowered is something I do NOT enjoy.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I don't like making sexual decisions, I prefer my partner to make them for me.</h3></div>
+    <input class="slider" type="range" id="39" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I like making sexual decisions.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I like to be totally helpless at my partner's disposal, physically unable to resist what they do.</h3></div>
+    <input class="slider" type="range" id="40" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT like to be totally helpless at my partner's disposal.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I enjoy feeling like a prey hunted by a predator.</h3></div>
+    <input class="slider" type="range" id="41" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT enjoy feeling like a prey hunted by a predator.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Being part of a group of slaves that serves one Master/Mistress, sounds like a life that would really suit me.</h3></div>
+    <input class="slider" type="range" id="42" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>That would NOT suit me.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I enjoy acting as a pet.</h3></div>
+    <input class="slider" type="range" id="43" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT enjoy acting as a pet.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I enjoy acting different age.</h3></div>
+    <input class="slider" type="range" id="44" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT enjoy acting different age.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I like being forced into submission, much more than submitting spontaneously.</h3></div>
+    <input class="slider" type="range" id="45" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I submit spontaneously.</h3></div>
+	</div>
+</div>
+<div class="slider-container slider-container-bdsm">
+  <h2>BDSM</h2>
+   <div class="slider-wrapper">
+    <div class="box sb1"><h3>I would be comfortable wearing restraints during sex.</h3></div>
+    <input class="slider" type="range" id="46" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I would NOT be comfortable wearing restraints during sex.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I would like to try fetish outfit.</h3></div>
+    <input class="slider" type="range" id="47" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I have no interest in wearing a fetish outfit.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>The idea of sexual spanking is a big turn-on.</h3></div>
+    <input class="slider" type="range" id="48" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>The idea of sexual spanking is a big turn-off.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I like receiving pain during sex/BDSM and seeing the results of it (marks/bruises, makeup running by tears, etc.) afterwards.</h3></div>
+    <input class="slider" type="range" id="49" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT like receiving pain during sex/BDSM.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Being treated with little or no respect during sex/BDSM arouses me.</h3></div>
+    <input class="slider" type="range" id="50" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>That does NOT arouse me.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I like hair pulling during sex.</h3></div>
+    <input class="slider" type="range" id="51" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT like hair pulling.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Being choked during sex is a turn-on.</h3></div>
+    <input class="slider" type="range" id="52" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT like being choked.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Being physically restricted during sex/BDSM (with clothes, attributes, rope, chains, etc.) is arousing.</h3></div>
+    <input class="slider" type="range" id="53" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>Being physically restricted is NOT arousing.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I would like to be completely tied up during sex/BDSM.</h3></div>
+    <input class="slider" type="range" id="54" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I would NOT like to do it/try it.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I would like it when my partner is completely tied up during sex/BDSM.</h3></div>
+    <input class="slider" type="range" id="55" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I would NOT like to do it/try it.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I like to talk dirty during sex/BDSM.</h3></div>
+    <input class="slider" type="range" id="56" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT like dirty talking.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I like inflicting pain during sex/BDSM and seeing the results of it (marks/bruises, makeup running by tears, etc.) afterwards.</h3></div>
+    <input class="slider" type="range" id="57" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT like inflicting pain during sex/BDSM.</h3></div>
+	</div>
+</div>
+<div class="slider-container slider-container-bdsmm">
+  <h2>BDSM</h2>
+   <div class="slider-wrapper">
+    <div class="box sb1"><h3>Making my partner suffer for my pleasure is one of the best things in life.</h3></div>
+    <input class="slider" type="range" id="58" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>That’s NOT my cup of tea.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Suffering for my partners pleasure is one of the best things in life.</h3></div>
+    <input class="slider" type="range" id="59" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT like to suffer.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I often behave in animalistic ways during sex (growling, howling, etc.)</h3></div>
+    <input class="slider" type="range" id="60" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT behave in animalistic ways during sex.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I would like to use sex toys on my partner(s).</h3></div>
+    <input class="slider" type="range" id="61" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I would NOT like to use sex toys on my partner(s).</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I like when my partner(s) use sex toys on me.</h3></div>
+    <input class="slider" type="range" id="62" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT want my partner(s) to use sex toys on me.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I enjoy urinating on my partner(s).</h3></div>
+    <input class="slider" type="range" id="63" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT enjoy urinating on my partner(s).</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I enjoy when my parner(s) urinate on me.</h3></div>
+    <input class="slider" type="range" id="64" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT enjoy when my parner(s) urinate on me.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Physically restricting my partner(s) during sex/BDSM (with clothes, attributes, rope, chains, etc.) is arousing.</h3></div>
+    <input class="slider" type="range" id="65" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>Physically restricting my partner(s) is NOT arousing.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I would like to use whips in the bedroom.</h3></div>
+    <input class="slider" type="range" id="66" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I would NOT like to use whips in the bedroom.</h3></div>
+</div>
+</div>
+<div class="slider-container slider-container-ex">
+  <h2>EXEBISIONISM/VOYEUR</h2>
+   <div class="slider-wrapper">
+    <div class="box sb1"><h3>Having sex with the lights on is such a turn-on.</h3></div>
+    <input class="slider" type="range" id="67" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>Having sex with the lights on is a real turn-off.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>The idea of being seen having sex is thrilling.</h3></div>
+    <input class="slider" type="range" id="68" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>The idea of being seen having sex is unappealing.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I enjoy it when people watch me being naked or having sex.</h3></div>
+    <input class="slider" type="range" id="69" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT enjoy when people watch me being naked or having sex.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>There is no reason why sex would have to happen in private spaces, isolated from the outside world.</h3></div>
+    <input class="slider" type="range" id="70" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>Sex should happen in private.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I like sending nude or sexual pictures/videos of myself to others.</h3></div>
+    <input class="slider" type="range" id="71" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT like sending nude or sexual pictures/videos of myself to others.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>If I could make some money from selling nudes/porn clips of myself, I definitely would.</h3></div>
+    <input class="slider" type="range" id="72" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I would NOT sell nudes/porn clips of myself for money.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I enjoy watching other people being naked or having sex.</h3></div>
+    <input class="slider" type="range" id="73" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT enjoy watching other people being naked or having sex.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Sometimes, watching people have sex is more fun than participating.</h3></div>
+    <input class="slider" type="range" id="74" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>Participating is more fun than watching.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I would consider doing striptease.</h3></div>
+    <input class="slider" type="range" id="75" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I would NOT consider doing striptease.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I love hearing intimate details of my friends' sex lives.</h3></div>
+    <input class="slider" type="range" id="76" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I don't want to hear the details of my friends' sex lives.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I would like to watch someone I know having sex.</h3></div>
+    <input class="slider" type="range" id="77" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>/ I would NOT like to watch someone I know having sex.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I would like to turn on someone other than my partner(s) by showing off to them.</h3></div>
+    <input class="slider" type="range" id="78" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I would NOT like to turn on someone other than my partner(s).</h3></div>
+	</div>
+	<div class="slider-wrapper">
+    <div class="box sb1"><h3>I would like to go to a striptease club/show.</h3></div>
+    <input class="slider" type="range" id="79" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I would NOT like to go to a striptease club/show.</h3></div>
+	</div>
+	<div class="slider-wrapper">
+    <div class="box sb1"><h3>I am willing to pay for porn if it really suits my sexual interests.</h3></div>
+    <input class="slider" type="range" id="80" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I am NOT willing to pay for porn even if it really suits my sexual interests.</h3></div>
+	</div>
+</div>
+<div class="slider-container slider-container-fan">
+  <h2>FANTASIES/LIMITS</h2>
+   <div class="slider-wrapper">
+    <div class="box sb1"><h3>Having sex with one person for the rest of my life would be boring.</h3></div>
+    <input class="slider" type="range" id="81" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>Having sex with one person for the rest of my life sounds ideal.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I am continually searching for new genres of pornography.</h3></div>
+    <input class="slider" type="range" id="82" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I stick to the same genres in pornography or fantasy.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Watching pornographic movies with my partner(s) is very exciting.</h3></div>
+    <input class="slider" type="range" id="83" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>Watching pornographic movies with my partner(s) is unacceptable.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I might engage in a sex affair.</h3></div>
+    <input class="slider" type="range" id="84" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I would never get involved in a sex affair.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Masturbating with my partner(s) is a big turn-on.</h3></div>
+    <input class="slider" type="range" id="85" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>Masturbating with my partner is not something I would ever do.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I have a need to constantly try new things, a sexual routine would never make me happy.</h3></div>
+    <input class="slider" type="range" id="86" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>Sexual routine makes me happy.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I fantasize about someone else while having sex with my partner(s).</h3></div>
+    <input class="slider" type="range" id="87" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT fantasize about someone else while having sex with my partner(s).</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Assuming I was single, I would like to have multiple sexual partners.</h3></div>
+    <input class="slider" type="range" id="88" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I would NOT like to have multiple sexual partners even if I was single.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I do NOT have any sort of specific fetish or non-standard sexual turn-on.</h3></div>
+    <input class="slider" type="range" id="89" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I have specific fetish or non-standard sexual turn-on.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>The idea of a threesome is a big turn-on.</h3></div>
+    <input class="slider" type="range" id="90" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I have no interest or curiosity about doing a threesome.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I would like to have sex with multiple people at the same time.</h3></div>
+    <input class="slider" type="range" id="91" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I would NOT like to have sex with multiple people at the same time.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I would consider chatting with someone behind my partners back.</h3></div>
+    <input class="slider" type="range" id="92" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I would NOT consider chatting with someone behind my partners back.</h3></div>
+	</div>
+</div>
+<div class="slider-container slider-container-fann">
+  <h2>FANTASIES/LIMITS</h2>
+   <div class="slider-wrapper">
+    <div class="box sb1"><h3>Meeting someone on the internet explicitly for cybersex is thrilling.</h3></div>
+    <input class="slider" type="range" id="93" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I can`t imagine having cybersex with a stranger from the internet.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I would be okay if my partner cheated.</h3></div>
+    <input class="slider" type="range" id="94" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I would NOT be okay if my partner cheated.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>My partner would probably be okay with me cheating.</h3></div>
+    <input class="slider" type="range" id="95" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>My partner would NOT be okay with me cheating.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I have fantasized about cheating.</h3></div>
+    <input class="slider" type="range" id="96" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I have never thought about cheating.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Using a hookup app to find a partner explicitly for sex is a turn on.</h3></div>
+    <input class="slider" type="range" id="97" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I can't imagine using a hookup app.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I'm totally cool with my partner(s) having sex with other people.</h3></div>
+    <input class="slider" type="range" id="98" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I would NOT cool with my partner(s) having sex with other people.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Seducing someone who's in a serious relationship is a turn-on.</h3></div>
+    <input class="slider" type="range" id="99" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I would never get sexually involved with someone in a relationship.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I have plenty of sexual fantasies that I would like to try out, more than most of my kinky peers.</h3></div>
+    <input class="slider" type="range" id="100" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT have sezual fantasies or I would NOT try them.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Sexual fantasies are a turn-on.</h3></div>
+    <input class="slider" type="range" id="101" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>Sexual fantasies are NOT a turn-on.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I have plenty of sexual fantasies which would at the very least be unethical to execute.</h3></div>
+    <input class="slider" type="range" id="102" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT have unethical sexual fantasies.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>If part of my sexual desires are not fulfilled with my partner, I would want to see other people to fill the gaps.</h3></div>
+    <input class="slider" type="range" id="103" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I would NOT see others to fulfil my sexual desires.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>If I could not fulfil all of my partner's sexual desires, I would encourage them to see other people to fill the gaps.</h3></div>
+    <input class="slider" type="range" id="104" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I would NOT encourage my partner to fulfil sexual desires with others.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I want to meet more like-minded kinky people, and am willing to put effort into that.</h3></div>
+    <input class="slider" type="range" id="105" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3>I do NOT want to meet more like-minded kinky people.</h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>My partner having multiple partners, while I'm monogamous (except for threesomes with my partner involved) sounds like a perfectly acceptable situation.</h3></div>
+    <input class="slider" type="range" id="106" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3></h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>Me having multiple partners, while my partner is monogamous (except for threesomes with my partner involved) sounds like a perfectly acceptable situation.</h3></div>
+    <input class="slider" type="range" id="107" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3></h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I would like for my partner(s) to allow me to have sex with others.</h3></div>
+    <input class="slider" type="range" id="108" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3></h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I would like to watch my partner(s) have sex with someone else.</h3></div>
+    <input class="slider" type="range" id="109" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3></h3></div>
+	</div>
+	  <div class="slider-wrapper">
+    <div class="box sb1"><h3>I would like to have sex with someone else while my partner(s) watch. </h3></div>
+    <input class="slider" type="range" id="110" min="0" max="100" value="50" step="10">
+    <div class="box sb2"><h3></h3></div>
+	</div>
+	</div>
+<div class="slider-container slider-container-res">
+  <h2>RESULTS</h2>
+ 	<div class="container">
+		<h2>General:</h2>
+		<img src="https://via.placeholder.com/300x200" alt="Personality image">
+		<h3>Expermentalist</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum euismod, est sit amet bibendum feugiat, arcu felis rhoncus lorem, ut sollicitudin mauris velit eu nunc. Nullam in mauris ipsum. Nullam volutpat erat non feugiat pharetra. Vivamus vestibulum eu magna et malesuada. Suspendisse scelerisque porta nibh eu convallis.</p>
+		<div class="results">
+		<div class="results-bar bargen"></div>
+		<div class="results-value valgen">0%</div>
+		</div>
+	</div>
+	<div class="container">
+		<h2>DOMINANT/SUBMISSIVE:</h2>
+		<img src="https://via.placeholder.com/300x200" alt="Dom/Sub">
+		<h3>Saving Private Ryan</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum euismod, est sit amet bibendum feugiat, arcu felis rhoncus lorem, ut sollicitudin mauris velit eu nunc. Nullam in mauris ipsum. Nullam volutpat erat non feugiat pharetra. Vivamus vestibulum eu magna et malesuada. Suspendisse scelerisque porta nibh eu convallis.</p>
+		<div class="results">
+		<div class="results-bar"></div>
+		<div class="results-value">0%</div>
+		</div>
+	</div>
+	<div class="container">
+		<h2>BDSM:</h2>
+		<img src="https://via.placeholder.com/300x200" alt="bdsm">
+		<h3>Saving Private Ryan</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum euismod, est sit amet bibendum feugiat, arcu felis rhoncus lorem, ut sollicitudin mauris velit eu nunc. Nullam in mauris ipsum. Nullam volutpat erat non feugiat pharetra. Vivamus vestibulum eu magna et malesuada. Suspendisse scelerisque porta nibh eu convallis.</p>
+		<div class="results">
+		<div class="results-bar"></div>
+		<div class="results-value">0%</div>
+		</div>
+	</div>
+	<div class="container">
+		<h2>EXHIBISIONISM/VOYEUR:</h2>
+		<img src="https://via.placeholder.com/300x200" alt="Exh/Voy">
+		<h3>Saving Private Ryan</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum euismod, est sit amet bibendum feugiat, arcu felis rhoncus lorem, ut sollicitudin mauris velit eu nunc. Nullam in mauris ipsum. Nullam volutpat erat non feugiat pharetra. Vivamus vestibulum eu magna et malesuada. Suspendisse scelerisque porta nibh eu convallis.</p>
+		<div class="results">
+		<div class="results-bar"></div>
+		<div class="results-value">0%</div>
+		</div>
+	</div>
+	<div class="container">
+		<h2>FANTASY/LIMITS:</h2>
+		<img src="https://via.placeholder.com/300x200" alt="Fant/Limits">
+		<h3>Saving Private Ryan</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum euismod, est sit amet bibendum feugiat, arcu felis rhoncus lorem, ut sollicitudin mauris velit eu nunc. Nullam in mauris ipsum. Nullam volutpat erat non feugiat pharetra. Vivamus vestibulum eu magna et malesuada. Suspendisse scelerisque porta nibh eu convallis.</p>
+		<div class="results">
+		<div class="results-bar"></div>
+		<div class="results-value">0%</div>
+		</div>
+	</div>
+</div>
+<button id="next-btn">Next Container</button>
+<script>
+const resultsBar = document.querySelector('.bargen');
+const resultsValue = document.querySelector('.valgen');
+var dom = 50;
+var sub = 50;
+var bdsm = 0;
+var exh = 0;
+var voy = 0;
+function myFunction() {
+for (let i = 0; i < sliderContainers.length; i++) {
+    sliderContainers[i].classList.remove('visible');
+  }
+  sliderContainers[currentContainer].classList.add('visible');
+  nextBtn.style.visibility = 'hidden';
+  document.querySelector('.progress').style.visibility = 'hidden';
+  var sliderValue1 = document.getElementById("1").value;
+  var sliderValue2 = document.getElementById("2").value;
+  var sliderValue3 = document.getElementById("3").value;
+  var sliderValue4 = document.getElementById("4").value;
+  var sliderValue5 = document.getElementById("5").value;
+  var sliderValue6 = document.getElementById("6").value;
+  var sliderValue7 = document.getElementById("7").value;
+  var sliderValue8 = document.getElementById("8").value;
+  var sliderValue9 = document.getElementById("9").value;
+  var sliderValue10 = document.getElementById("10").value;
+  var sliderValue11 = document.getElementById("11").value;
+  var sliderValue12 = document.getElementById("12").value;
+  var sliderValue13 = document.getElementById("13").value;
+  var sliderValue14 = document.getElementById("14").value;
+  var sliderValue15 = document.getElementById("15").value;
+  var sliderValue16 = document.getElementById("16").value;
+  var sliderValue17 = document.getElementById("17").value;
+  var sliderValue18 = document.getElementById("18").value;
+  var sliderValue19 = document.getElementById("19").value;
+  var sliderValue20 = document.getElementById("20").value;
+  var sliderValue21 = document.getElementById("21").value;
+  var sliderValue22 = document.getElementById("22").value;
+  var sliderValue23 = document.getElementById("23").value;
+  var sliderValue24 = document.getElementById("24").value;
+  var sliderValue25 = document.getElementById("25").value;
+  var sliderValue26 = document.getElementById("26").value;
+  var sliderValue27 = document.getElementById("27").value;
+  var sliderValue28 = document.getElementById("28").value;
+  var sliderValue29 = document.getElementById("29").value;
+  var sliderValue30 = document.getElementById("30").value;
+  var sliderValue31 = document.getElementById("31").value;
+  var sliderValue32 = document.getElementById("32").value;
+  var sliderValue33 = document.getElementById("33").value;
+  var sliderValue34 = document.getElementById("34").value;
+  var sliderValue35 = document.getElementById("35").value;
+  var sliderValue36 = document.getElementById("36").value;
+  var sliderValue37 = document.getElementById("37").value;
+  var sliderValue38 = document.getElementById("38").value;
+  var sliderValue39 = document.getElementById("39").value;
+  var sliderValue40 = document.getElementById("40").value;
+  var sliderValue41 = document.getElementById("41").value;
+  var sliderValue42 = document.getElementById("42").value;
+  var sliderValue43 = document.getElementById("43").value;
+  var sliderValue44 = document.getElementById("44").value;
+  var sliderValue45 = document.getElementById("45").value;
+  var sliderValue46 = document.getElementById("46").value;
+  var sliderValue47 = document.getElementById("47").value;
+  var sliderValue48 = document.getElementById("48").value;
+  var sliderValue49 = document.getElementById("49").value;
+  var sliderValue50 = document.getElementById("50").value;
+  var sliderValue51 = document.getElementById("51").value;
+  var sliderValue52 = document.getElementById("52").value;
+  var sliderValue53 = document.getElementById("53").value;
+  var sliderValue54 = document.getElementById("54").value;
+  var sliderValue55 = document.getElementById("55").value;
+  var sliderValue56 = document.getElementById("56").value;
+  var sliderValue57 = document.getElementById("57").value;
+  var sliderValue58 = document.getElementById("58").value;
+  var sliderValue59 = document.getElementById("59").value;
+  var sliderValue60 = document.getElementById("60").value;
+  var sliderValue61 = document.getElementById("61").value;
+  var sliderValue62 = document.getElementById("62").value;
+  var sliderValue63 = document.getElementById("63").value;
+  var sliderValue64 = document.getElementById("64").value;
+  var sliderValue65 = document.getElementById("65").value;
+  var sliderValue66 = document.getElementById("66").value;
+  var sliderValue67 = document.getElementById("67").value;
+  var sliderValue68 = document.getElementById("68").value;
+  var sliderValue69 = document.getElementById("69").value;
+  var sliderValue70 = document.getElementById("70").value;
+  var sliderValue71 = document.getElementById("71").value;
+  var sliderValue72 = document.getElementById("72").value;
+  var sliderValue73 = document.getElementById("73").value;
+  var sliderValue74 = document.getElementById("74").value;
+  var sliderValue75 = document.getElementById("75").value;
+  var sliderValue76 = document.getElementById("76").value;
+  var sliderValue77 = document.getElementById("77").value;
+  var sliderValue78 = document.getElementById("78").value;
+  var sliderValue79 = document.getElementById("79").value;
+  var sliderValue80 = document.getElementById("80").value;
+  var sliderValue81 = document.getElementById("81").value;
+  var sliderValue82 = document.getElementById("82").value;
+  var sliderValue83 = document.getElementById("83").value;
+  var sliderValue84 = document.getElementById("84").value;
+  var sliderValue85 = document.getElementById("85").value;
+  var sliderValue86 = document.getElementById("86").value;
+  var sliderValue87 = document.getElementById("87").value;
+  var sliderValue88 = document.getElementById("88").value;
+  var sliderValue89 = document.getElementById("89").value;
+  var sliderValue90 = document.getElementById("90").value;
+  var sliderValue91 = document.getElementById("91").value;
+  var sliderValue92 = document.getElementById("92").value;
+  var sliderValue93 = document.getElementById("93").value;
+  var sliderValue94 = document.getElementById("94").value;
+  var sliderValue95 = document.getElementById("95").value;
+  var sliderValue96 = document.getElementById("96").value;
+  var sliderValue97 = document.getElementById("97").value;
+  var sliderValue98 = document.getElementById("98").value;
+  var sliderValue99 = document.getElementById("99").value;
+  var sliderValue100 = document.getElementById("100").value;
+  var sliderValue101 = document.getElementById("101").value;
+  var sliderValue102 = document.getElementById("102").value;
+  var sliderValue103 = document.getElementById("103").value;
+  var sliderValue104 = document.getElementById("104").value;
+  var sliderValue105 = document.getElementById("105").value;
+  var sliderValue106 = document.getElementById("106").value;
+  var sliderValue107 = document.getElementById("107").value;
+  var sliderValue108 = document.getElementById("108").value;
+  var sliderValue109 = document.getElementById("109").value;
+  var sliderValue110 = document.getElementById("110").value;
+  if (sliderValue1 == 0) {
+    dom += 0;
+  }  else if (sliderValue1 < 49) {
+    dom += 10;
+  } else if (sliderValue1 == 50) {
+    dom += 20;
+  } else if (sliderValue1 < 80) {
+    dom += 30;
+  } else if (sliderValue1 < 100) {
+    dom += 40;
+  } else if (sliderValue1 == 100) {
+    dom += 50;
+  }
+  if (sliderValue2 == 0) {
+    dom += 0;
+  }  else if (sliderValue2 < 49) {
+    dom += 10;
+  } else if (sliderValue2 == 50) {
+    dom += 20;
+  } else if (sliderValue2 < 80) {
+    dom += 30;
+  } else if (sliderValue2 < 100) {
+    dom += 40;
+  } else if (sliderValue2 == 100) {
+    dom += 50;
+  }
+  if (sliderValue3 == 0) {
+    dom += 0;
+  }  else if (sliderValue3 < 49) {
+    dom += 10;
+  } else if (sliderValue3 == 50) {
+    dom += 20;
+  } else if (sliderValue3 < 80) {
+    dom += 30;
+  } else if (sliderValue3 < 100) {
+    dom += 40;
+  } else if (sliderValue3 == 100) {
+    dom += 50;
+  }
+  if (sliderValue4 == 0) {
+    dom += 0;
+  }  else if (sliderValue4 < 49) {
+    dom += 10;
+  } else if (sliderValue4 == 50) {
+    dom += 20;
+  } else if (sliderValue4 < 80) {
+    dom += 30;
+  } else if (sliderValue4 < 100) {
+    dom += 40;
+  } else if (sliderValue4 == 100) {
+    dom += 50;
+  }
+  if (sliderValue5 == 0) {
+    dom += 0;
+  }  else if (sliderValue5 < 49) {
+    dom += 10;
+  } else if (sliderValue5 == 50) {
+    dom += 20;
+  } else if (sliderValue5 < 80) {
+    dom += 30;
+  } else if (sliderValue5 < 100) {
+    dom += 40;
+  } else if (sliderValue5 == 100) {
+    dom += 50;
+  }
+  if (sliderValue6 == 0) {
+    dom += 0;
+  }  else if (sliderValue6 < 49) {
+    dom += 10;
+  } else if (sliderValue6 == 50) {
+    dom += 20;
+  } else if (sliderValue6 < 80) {
+    dom += 30;
+  } else if (sliderValue6 < 100) {
+    dom += 40;
+  } else if (sliderValue6 == 100) {
+    dom += 50;
+  }
+  if (sliderValue7 == 0) {
+    dom += 0;
+  }  else if (sliderValue7 < 49) {
+    dom += 10;
+  } else if (sliderValue7 == 50) {
+    dom += 20;
+  } else if (sliderValue7 < 80) {
+    dom += 30;
+  } else if (sliderValue7 < 100) {
+    dom += 40;
+  } else if (sliderValue7 == 100) {
+    dom += 50;
+  }
+  if (sliderValue8 == 0) {
+    dom += 0;
+  }  else if (sliderValue8 < 49) {
+    dom += 10;
+  } else if (sliderValue8 == 50) {
+    dom += 20;
+  } else if (sliderValue8 < 80) {
+    dom += 30;
+  } else if (sliderValue8 < 100) {
+    dom += 40;
+  } else if (sliderValue8 == 100) {
+    dom += 50;
+  }
+  if (sliderValue9 == 0) {
+    dom += 0;
+  }  else if (sliderValue9 < 49) {
+    dom += 10;
+  } else if (sliderValue9 == 50) {
+    dom += 20;
+  } else if (sliderValue9 < 80) {
+    dom += 30;
+  } else if (sliderValue9 < 100) {
+    dom += 40;
+  } else if (sliderValue9 == 100) {
+    dom += 50;
+  }
+  if (sliderValue10 == 0) {
+    dom += 0;
+  }  else if (sliderValue10 < 49) {
+    dom += 10;
+  } else if (sliderValue10 == 50) {
+    dom += 20;
+  } else if (sliderValue10 < 80) {
+    dom += 30;
+  } else if (sliderValue10 < 100) {
+    dom += 40;
+  } else if (sliderValue10 == 100) {
+    dom += 50;
+  }
+  if (sliderValue11 == 0) {
+    dom += 0;
+  }  else if (sliderValue11 < 49) {
+    dom += 10;
+  } else if (sliderValue11 == 50) {
+    dom += 20;
+  } else if (sliderValue11 < 80) {
+    dom += 30;
+  } else if (sliderValue11 < 100) {
+    dom += 40;
+  } else if (sliderValue11 == 100) {
+    dom += 50;
+  }
+  if (sliderValue12 == 0) {
+    dom += 0;
+  }  else if (sliderValue12 < 49) {
+    dom += 10;
+  } else if (sliderValue12 == 50) {
+    dom += 20;
+  } else if (sliderValue12 < 80) {
+    dom += 30;
+  } else if (sliderValue12 < 100) {
+    dom += 40;
+  } else if (sliderValue12 == 100) {
+    dom += 50;
+  }
+  if (sliderValue13 == 0) {
+    dom += 0;
+  }  else if (sliderValue13 < 49) {
+    dom += 10;
+  } else if (sliderValue13 == 50) {
+    dom += 20;
+  } else if (sliderValue13 < 80) {
+    dom += 30;
+  } else if (sliderValue13 < 100) {
+    dom += 40;
+  } else if (sliderValue13 == 100) {
+    dom += 50;
+  }
+  if (sliderValue14 == 0) {
+    dom += 0;
+  }  else if (sliderValue14 < 49) {
+    dom += 10;
+  } else if (sliderValue14 == 50) {
+    dom += 20;
+  } else if (sliderValue14 < 80) {
+    dom += 30;
+  } else if (sliderValue14 < 100) {
+    dom += 40;
+  } else if (sliderValue14 == 100) {
+    dom += 50;
+  }
+  if (sliderValue15 == 0) {
+    dom += 0;
+  }  else if (sliderValue15 < 49) {
+    dom += 10;
+  } else if (sliderValue15 == 50) {
+    dom += 20;
+  } else if (sliderValue15 < 80) {
+    dom += 30;
+  } else if (sliderValue15 < 100) {
+    dom += 40;
+  } else if (sliderValue15 == 100) {
+    dom += 50;
+  }
+  if (sliderValue16 == 0) {
+    dom += 0;
+  }  else if (sliderValue16 < 49) {
+    dom += 10;
+  } else if (sliderValue16 == 50) {
+    dom += 20;
+  } else if (sliderValue16 < 80) {
+    dom += 30;
+  } else if (sliderValue16 < 100) {
+    dom += 40;
+  } else if (sliderValue16 == 100) {
+    dom += 50;
+  }
+  if (sliderValue17 == 0) {
+    dom += 0;
+  }  else if (sliderValue17 < 49) {
+    dom += 10;
+  } else if (sliderValue17 == 50) {
+    dom += 20;
+  } else if (sliderValue17 < 80) {
+    dom += 30;
+  } else if (sliderValue17 < 100) {
+    dom += 40;
+  } else if (sliderValue17 == 100) {
+    dom += 50;
+  }
+  if (sliderValue18 == 0) {
+    dom += 0;
+  }  else if (sliderValue18 < 49) {
+    dom += 10;
+  } else if (sliderValue18 == 50) {
+    dom += 20;
+  } else if (sliderValue18 < 80) {
+    dom += 30;
+  } else if (sliderValue18 < 100) {
+    dom += 40;
+  } else if (sliderValue18 == 100) {
+    dom += 50;
+  }
+  if (sliderValue19 == 0) {
+    dom += 0;
+  }  else if (sliderValue19 < 49) {
+    dom += 10;
+  } else if (sliderValue19 == 50) {
+    dom += 20;
+  } else if (sliderValue19 < 80) {
+    dom += 30;
+  } else if (sliderValue19 < 100) {
+    dom += 40;
+  } else if (sliderValue19 == 100) {
+    dom += 50;
+  }
+  if (sliderValue20 == 0) {
+    dom += 0;
+  }  else if (sliderValue20 < 49) {
+    dom += 10;
+  } else if (sliderValue20 == 50) {
+    dom += 20;
+  } else if (sliderValue20 < 80) {
+    dom += 30;
+  } else if (sliderValue20 < 100) {
+    dom += 40;
+  } else if (sliderValue20 == 100) {
+    dom += 50;
+  }
+  if (sliderValue21 == 0) {
+    dom += 0;
+  }  else if (sliderValue21 < 49) {
+    dom += 10;
+  } else if (sliderValue21 == 50) {
+    dom += 20;
+  } else if (sliderValue21 < 80) {
+    dom += 30;
+  } else if (sliderValue21 < 100) {
+    dom += 40;
+  } else if (sliderValue21 == 100) {
+    dom += 50;
+  }
+  if (sliderValue22 == 0) {
+    dom += 2;
+	sub -= 2;
+  }  else if (sliderValue22 < 49) {
+    dom += 1;
+	sub -= 1;
+  } else if (sliderValue22 == 50) {
+    dom += 0;
+	sub -= 0;
+  } else if (sliderValue22 < 80) {
+    dom -= 1;
+	sub += 1;
+  } else if (sliderValue22 < 100) {
+    dom -= 2;
+	sub += 2;
+  } else if (sliderValue22 == 100) {
+    dom -= 2;
+	sub += 2;
+  }
+  if (sliderValue23 == 0) {
+    dom += 0;
+  }  else if (sliderValue23 < 49) {
+    dom += 10;
+  } else if (sliderValue23 == 50) {
+    dom += 20;
+  } else if (sliderValue23 < 80) {
+    dom += 30;
+  } else if (sliderValue23 < 100) {
+    dom += 40;
+  } else if (sliderValue23 == 100) {
+    dom += 50;
+  }
+  if (sliderValue24 == 0) {
+    dom += 0;
+  }  else if (sliderValue24 < 49) {
+    dom += 10;
+  } else if (sliderValue24 == 50) {
+    dom += 20;
+  } else if (sliderValue24 < 80) {
+    dom += 30;
+  } else if (sliderValue24 < 100) {
+    dom += 40;
+  } else if (sliderValue24 == 100) {
+    dom += 50;
+  }
+  if (sliderValue25 == 0) {
+    dom += 0;
+  }  else if (sliderValue25 < 49) {
+    dom += 10;
+  } else if (sliderValue25 == 50) {
+    dom += 20;
+  } else if (sliderValue25 < 80) {
+    dom += 30;
+  } else if (sliderValue25 < 100) {
+    dom += 40;
+  } else if (sliderValue25 == 100) {
+    dom += 50;
+  }
+  if (sliderValue26 == 0) {
+    dom += 0;
+  }  else if (sliderValue26 < 49) {
+    dom += 10;
+  } else if (sliderValue26 == 50) {
+    dom += 20;
+  } else if (sliderValue26 < 80) {
+    dom += 30;
+  } else if (sliderValue26 < 100) {
+    dom += 40;
+  } else if (sliderValue26 == 100) {
+    dom += 50;
+  }
+  if (sliderValue27 == 0) {
+    dom += 0;
+  }  else if (sliderValue27 < 49) {
+    dom += 10;
+  } else if (sliderValue27 == 50) {
+    dom += 20;
+  } else if (sliderValue27 < 80) {
+    dom += 30;
+  } else if (sliderValue27 < 100) {
+    dom += 40;
+  } else if (sliderValue27 == 100) {
+    dom += 50;
+  }
+  if (sliderValue28 == 0) {
+    dom += 0;
+  }  else if (sliderValue28 < 49) {
+    dom += 10;
+  } else if (sliderValue28 == 50) {
+    dom += 20;
+  } else if (sliderValue28 < 80) {
+    dom += 30;
+  } else if (sliderValue28 < 100) {
+    dom += 40;
+  } else if (sliderValue28 == 100) {
+    dom += 50;
+  }
+  if (sliderValue29 == 0) {
+    dom += 0;
+  }  else if (sliderValue29 < 49) {
+    dom += 10;
+  } else if (sliderValue29 == 50) {
+    dom += 20;
+  } else if (sliderValue29 < 80) {
+    dom += 30;
+  } else if (sliderValue29 < 100) {
+    dom += 40;
+  } else if (sliderValue29 == 100) {
+    dom += 50;
+  }
+  if (sliderValue30 == 0) {
+    dom += 0;
+  }  else if (sliderValue30 < 49) {
+    dom += 10;
+  } else if (sliderValue30 == 50) {
+    dom += 20;
+  } else if (sliderValue30 < 80) {
+    dom += 30;
+  } else if (sliderValue30 < 100) {
+    dom += 40;
+  } else if (sliderValue30 == 100) {
+    dom += 50;
+  }
+  if (sliderValue31 == 0) {
+    dom += 0;
+  }  else if (sliderValue31 < 49) {
+    dom += 10;
+  } else if (sliderValue31 == 50) {
+    dom += 20;
+  } else if (sliderValue31 < 80) {
+    dom += 30;
+  } else if (sliderValue31 < 100) {
+    dom += 40;
+  } else if (sliderValue31 == 100) {
+    dom += 50;
+  }
+  if (sliderValue32 == 0) {
+    dom += 0;
+  }  else if (sliderValue32 < 49) {
+    dom += 10;
+  } else if (sliderValue32 == 50) {
+    dom += 20;
+  } else if (sliderValue32 < 80) {
+    dom += 30;
+  } else if (sliderValue32 < 100) {
+    dom += 40;
+  } else if (sliderValue32 == 100) {
+    dom += 50;
+  }
+  if (sliderValue33 == 0) {
+    dom += 0;
+  }  else if (sliderValue33 < 49) {
+    dom += 10;
+  } else if (sliderValue33 == 50) {
+    dom += 20;
+  } else if (sliderValue33 < 80) {
+    dom += 30;
+  } else if (sliderValue33 < 100) {
+    dom += 40;
+  } else if (sliderValue33 == 100) {
+    dom += 50;
+  }
+  if (sliderValue34 == 0) {
+    dom += 0;
+  }  else if (sliderValue34 < 49) {
+    dom += 10;
+  } else if (sliderValue34 == 50) {
+    dom += 20;
+  } else if (sliderValue34 < 80) {
+    dom += 30;
+  } else if (sliderValue34 < 100) {
+    dom += 40;
+  } else if (sliderValue34 == 100) {
+    dom += 50;
+  }
+  if (sliderValue35 == 0) {
+    dom += 0;
+  }  else if (sliderValue35 < 49) {
+    dom += 10;
+  } else if (sliderValue35 == 50) {
+    dom += 20;
+  } else if (sliderValue35 < 80) {
+    dom += 30;
+  } else if (sliderValue35 < 100) {
+    dom += 40;
+  } else if (sliderValue35 == 100) {
+    dom += 50;
+  }
+  if (sliderValue36 == 0) {
+    dom += 0;
+  }  else if (sliderValue36 < 49) {
+    dom += 10;
+  } else if (sliderValue36 == 50) {
+    dom += 20;
+  } else if (sliderValue36 < 80) {
+    dom += 30;
+  } else if (sliderValue36 < 100) {
+    dom += 40;
+  } else if (sliderValue36 == 100) {
+    dom += 50;
+  }
+  if (sliderValue37 == 0) {
+    dom += 0;
+  }  else if (sliderValue37 < 49) {
+    dom += 10;
+  } else if (sliderValue37 == 50) {
+    dom += 20;
+  } else if (sliderValue37 < 80) {
+    dom += 30;
+  } else if (sliderValue37 < 100) {
+    dom += 40;
+  } else if (sliderValue37 == 100) {
+    dom += 50;
+  }
+  if (sliderValue38 == 0) {
+    dom += 0;
+  }  else if (sliderValue38 < 49) {
+    dom += 10;
+  } else if (sliderValue38 == 50) {
+    dom += 20;
+  } else if (sliderValue38 < 80) {
+    dom += 30;
+  } else if (sliderValue38 < 100) {
+    dom += 40;
+  } else if (sliderValue38 == 100) {
+    dom += 50;
+  }
+  if (sliderValue39 == 0) {
+    dom += 0;
+  }  else if (sliderValue39 < 49) {
+    dom += 10;
+  } else if (sliderValue39 == 50) {
+    dom += 20;
+  } else if (sliderValue39 < 80) {
+    dom += 30;
+  } else if (sliderValue39 < 100) {
+    dom += 40;
+  } else if (sliderValue39 == 100) {
+    dom += 50;
+  }
+  if (sliderValue40 == 0) {
+    dom += 0;
+  }  else if (sliderValue40 < 49) {
+    dom += 10;
+  } else if (sliderValue40 == 50) {
+    dom += 20;
+  } else if (sliderValue40 < 80) {
+    dom += 30;
+  } else if (sliderValue40 < 100) {
+    dom += 40;
+  } else if (sliderValue40 == 100) {
+    dom += 50;
+  }
+  if (sliderValue41 == 0) {
+    dom += 0;
+  }  else if (sliderValue41 < 49) {
+    dom += 10;
+  } else if (sliderValue41 == 50) {
+    dom += 20;
+  } else if (sliderValue41 < 80) {
+    dom += 30;
+  } else if (sliderValue41 < 100) {
+    dom += 40;
+  } else if (sliderValue41 == 100) {
+    dom += 50;
+  }
+  if (sliderValue42 == 0) {
+    dom += 0;
+  }  else if (sliderValue42 < 49) {
+    dom += 10;
+  } else if (sliderValue42 == 50) {
+    dom += 20;
+  } else if (sliderValue42 < 80) {
+    dom += 30;
+  } else if (sliderValue42 < 100) {
+    dom += 40;
+  } else if (sliderValue42 == 100) {
+    dom += 50;
+  }
+  if (sliderValue43 == 0) {
+    dom += 0;
+  }  else if (sliderValue43 < 49) {
+    dom += 10;
+  } else if (sliderValue43 == 50) {
+    dom += 20;
+  } else if (sliderValue43 < 80) {
+    dom += 30;
+  } else if (sliderValue43 < 100) {
+    dom += 40;
+  } else if (sliderValue43 == 100) {
+    dom += 50;
+  }
+  if (sliderValue44 == 0) {
+    dom += 0;
+  }  else if (sliderValue44 < 49) {
+    dom += 10;
+  } else if (sliderValue44 == 50) {
+    dom += 20;
+  } else if (sliderValue44 < 80) {
+    dom += 30;
+  } else if (sliderValue44 < 100) {
+    dom += 40;
+  } else if (sliderValue44 == 100) {
+    dom += 50;
+  }
+  if (sliderValue45 == 0) {
+    dom += 0;
+  }  else if (sliderValue45 < 49) {
+    dom += 10;
+  } else if (sliderValue45 == 50) {
+    dom += 20;
+  } else if (sliderValue45 < 80) {
+    dom += 30;
+  } else if (sliderValue45 < 100) {
+    dom += 40;
+  } else if (sliderValue45 == 100) {
+    dom += 50;
+  }
+  if (sliderValue46 == 0) {
+    dom += 0;
+  }  else if (sliderValue46 < 49) {
+    dom += 10;
+  } else if (sliderValue46 == 50) {
+    dom += 20;
+  } else if (sliderValue46 < 80) {
+    dom += 30;
+  } else if (sliderValue46 < 100) {
+    dom += 40;
+  } else if (sliderValue46 == 100) {
+    dom += 50;
+  }
+  if (sliderValue47 == 0) {
+    dom += 0;
+  }  else if (sliderValue47 < 49) {
+    dom += 10;
+  } else if (sliderValue47 == 50) {
+    dom += 20;
+  } else if (sliderValue47 < 80) {
+    dom += 30;
+  } else if (sliderValue47 < 100) {
+    dom += 40;
+  } else if (sliderValue47 == 100) {
+    dom += 50;
+  }
+  if (sliderValue48 == 0) {
+    dom += 0;
+  }  else if (sliderValue48 < 49) {
+    dom += 10;
+  } else if (sliderValue48 == 50) {
+    dom += 20;
+  } else if (sliderValue48 < 80) {
+    dom += 30;
+  } else if (sliderValue48 < 100) {
+    dom += 40;
+  } else if (sliderValue48 == 100) {
+    dom += 50;
+  }
+  if (sliderValue49 == 0) {
+    dom += 0;
+  }  else if (sliderValue49 < 49) {
+    dom += 10;
+  } else if (sliderValue49 == 50) {
+    dom += 20;
+  } else if (sliderValue49 < 80) {
+    dom += 30;
+  } else if (sliderValue49 < 100) {
+    dom += 40;
+  } else if (sliderValue49 == 100) {
+    dom += 50;
+  }
+  if (sliderValue50 == 0) {
+    dom += 0;
+  }  else if (sliderValue50 < 49) {
+    dom += 10;
+  } else if (sliderValue50 == 50) {
+    dom += 20;
+  } else if (sliderValue50 < 80) {
+    dom += 30;
+  } else if (sliderValue50 < 100) {
+    dom += 40;
+  } else if (sliderValue50 == 100) {
+    dom += 50;
+  }
+  if (sliderValue51 == 0) {
+    dom += 0;
+  }  else if (sliderValue51 < 49) {
+    dom += 10;
+  } else if (sliderValue51 == 50) {
+    dom += 20;
+  } else if (sliderValue51 < 80) {
+    dom += 30;
+  } else if (sliderValue51 < 100) {
+    dom += 40;
+  } else if (sliderValue51 == 100) {
+    dom += 50;
+  }
+  if (sliderValue52 == 0) {
+    dom += 0;
+  }  else if (sliderValue52 < 49) {
+    dom += 10;
+  } else if (sliderValue52 == 50) {
+    dom += 20;
+  } else if (sliderValue52 < 80) {
+    dom += 30;
+  } else if (sliderValue52 < 100) {
+    dom += 40;
+  } else if (sliderValue52 == 100) {
+    dom += 50;
+  }
+  if (sliderValue53 == 0) {
+    dom += 0;
+  }  else if (sliderValue53 < 49) {
+    dom += 10;
+  } else if (sliderValue53 == 50) {
+    dom += 20;
+  } else if (sliderValue53 < 80) {
+    dom += 30;
+  } else if (sliderValue53 < 100) {
+    dom += 40;
+  } else if (sliderValue53 == 100) {
+    dom += 50;
+  }
+  if (sliderValue54 == 0) {
+    dom += 0;
+  }  else if (sliderValue54 < 49) {
+    dom += 10;
+  } else if (sliderValue54 == 50) {
+    dom += 20;
+  } else if (sliderValue54 < 80) {
+    dom += 30;
+  } else if (sliderValue54 < 100) {
+    dom += 40;
+  } else if (sliderValue54 == 100) {
+    dom += 50;
+  }
+  if (sliderValue55 == 0) {
+    dom += 0;
+  }  else if (sliderValue55 < 49) {
+    dom += 10;
+  } else if (sliderValue55 == 50) {
+    dom += 20;
+  } else if (sliderValue55 < 80) {
+    dom += 30;
+  } else if (sliderValue55 < 100) {
+    dom += 40;
+  } else if (sliderValue55 == 100) {
+    dom += 50;
+  }
+  if (sliderValue56 == 0) {
+    dom += 0;
+  }  else if (sliderValue56 < 49) {
+    dom += 10;
+  } else if (sliderValue56 == 50) {
+    dom += 20;
+  } else if (sliderValue56 < 80) {
+    dom += 30;
+  } else if (sliderValue56 < 100) {
+    dom += 40;
+  } else if (sliderValue56 == 100) {
+    dom += 50;
+  }
+  if (sliderValue57 == 0) {
+    dom += 0;
+  }  else if (sliderValue57 < 49) {
+    dom += 10;
+  } else if (sliderValue57 == 50) {
+    dom += 20;
+  } else if (sliderValue57 < 80) {
+    dom += 30;
+  } else if (sliderValue57 < 100) {
+    dom += 40;
+  } else if (sliderValue57 == 100) {
+    dom += 50;
+  }
+  if (sliderValue58 == 0) {
+    dom += 0;
+  }  else if (sliderValue58 < 49) {
+    dom += 10;
+  } else if (sliderValue58 == 50) {
+    dom += 20;
+  } else if (sliderValue58 < 80) {
+    dom += 30;
+  } else if (sliderValue58 < 100) {
+    dom += 40;
+  } else if (sliderValue58 == 100) {
+    dom += 50;
+  }
+  if (sliderValue59 == 0) {
+    dom += 0;
+  }  else if (sliderValue59 < 49) {
+    dom += 10;
+  } else if (sliderValue59 == 50) {
+    dom += 20;
+  } else if (sliderValue59 < 80) {
+    dom += 30;
+  } else if (sliderValue59 < 100) {
+    dom += 40;
+  } else if (sliderValue59 == 100) {
+    dom += 50;
+  }
+  if (sliderValue60 == 0) {
+    dom += 0;
+  }  else if (sliderValue60 < 49) {
+    dom += 10;
+  } else if (sliderValue60 == 50) {
+    dom += 20;
+  } else if (sliderValue60 < 80) {
+    dom += 30;
+  } else if (sliderValue60 < 100) {
+    dom += 40;
+  } else if (sliderValue60 == 100) {
+    dom += 50;
+  }
+  if (sliderValue61 == 0) {
+    dom += 0;
+  }  else if (sliderValue61 < 49) {
+    dom += 10;
+  } else if (sliderValue61 == 50) {
+    dom += 20;
+  } else if (sliderValue61 < 80) {
+    dom += 30;
+  } else if (sliderValue61 < 100) {
+    dom += 40;
+  } else if (sliderValue61 == 100) {
+    dom += 50;
+  }
+  if (sliderValue62 == 0) {
+    dom += 0;
+  }  else if (sliderValue62 < 49) {
+    dom += 10;
+  } else if (sliderValue62 == 50) {
+    dom += 20;
+  } else if (sliderValue62 < 80) {
+    dom += 30;
+  } else if (sliderValue62 < 100) {
+    dom += 40;
+  } else if (sliderValue62 == 100) {
+    dom += 50;
+  }
+  if (sliderValue63 == 0) {
+    dom += 0;
+  }  else if (sliderValue63 < 49) {
+    dom += 10;
+  } else if (sliderValue63 == 50) {
+    dom += 20;
+  } else if (sliderValue63 < 80) {
+    dom += 30;
+  } else if (sliderValue63 < 100) {
+    dom += 40;
+  } else if (sliderValue63 == 100) {
+    dom += 50;
+  }
+  if (sliderValue64 == 0) {
+    dom += 0;
+  }  else if (sliderValue64 < 49) {
+    dom += 10;
+  } else if (sliderValue64 == 50) {
+    dom += 20;
+  } else if (sliderValue64 < 80) {
+    dom += 30;
+  } else if (sliderValue64 < 100) {
+    dom += 40;
+  } else if (sliderValue64 == 100) {
+    dom += 50;
+  }
+  if (sliderValue65 == 0) {
+    dom += 0;
+  }  else if (sliderValue65 < 49) {
+    dom += 10;
+  } else if (sliderValue65 == 50) {
+    dom += 20;
+  } else if (sliderValue65 < 80) {
+    dom += 30;
+  } else if (sliderValue65 < 100) {
+    dom += 40;
+  } else if (sliderValue65 == 100) {
+    dom += 50;
+  }
+  if (sliderValue66 == 0) {
+    dom += 0;
+  }  else if (sliderValue66 < 49) {
+    dom += 10;
+  } else if (sliderValue66 == 50) {
+    dom += 20;
+  } else if (sliderValue66 < 80) {
+    dom += 30;
+  } else if (sliderValue66 < 100) {
+    dom += 40;
+  } else if (sliderValue66 == 100) {
+    dom += 50;
+  }
+  if (sliderValue67 == 0) {
+    dom += 0;
+  }  else if (sliderValue67 < 49) {
+    dom += 10;
+  } else if (sliderValue67 == 50) {
+    dom += 20;
+  } else if (sliderValue67 < 80) {
+    dom += 30;
+  } else if (sliderValue67 < 100) {
+    dom += 40;
+  } else if (sliderValue67 == 100) {
+    dom += 50;
+  }
+  if (sliderValue68 == 0) {
+    dom += 0;
+  }  else if (sliderValue68 < 49) {
+    dom += 10;
+  } else if (sliderValue68 == 50) {
+    dom += 20;
+  } else if (sliderValue68 < 80) {
+    dom += 30;
+  } else if (sliderValue68 < 100) {
+    dom += 40;
+  } else if (sliderValue68 == 100) {
+    dom += 50;
+  }
+  if (sliderValue69 == 0) {
+    dom += 0;
+  }  else if (sliderValue69 < 49) {
+    dom += 10;
+  } else if (sliderValue69 == 50) {
+    dom += 20;
+  } else if (sliderValue69 < 80) {
+    dom += 30;
+  } else if (sliderValue69 < 100) {
+    dom += 40;
+  } else if (sliderValue69 == 100) {
+    dom += 50;
+  }
+  if (sliderValue70 == 0) {
+    dom += 0;
+  }  else if (sliderValue70 < 49) {
+    dom += 10;
+  } else if (sliderValue70 == 50) {
+    dom += 20;
+  } else if (sliderValue70 < 80) {
+    dom += 30;
+  } else if (sliderValue70 < 100) {
+    dom += 40;
+  } else if (sliderValue70 == 100) {
+    dom += 50;
+  }
+  if (sliderValue71 == 0) {
+    dom += 0;
+  }  else if (sliderValue71 < 49) {
+    dom += 10;
+  } else if (sliderValue71 == 50) {
+    dom += 20;
+  } else if (sliderValue71 < 80) {
+    dom += 30;
+  } else if (sliderValue71 < 100) {
+    dom += 40;
+  } else if (sliderValue71 == 100) {
+    dom += 50;
+  }
+  if (sliderValue72 == 0) {
+    dom += 0;
+  }  else if (sliderValue72 < 49) {
+    dom += 10;
+  } else if (sliderValue72 == 50) {
+    dom += 20;
+  } else if (sliderValue72 < 80) {
+    dom += 30;
+  } else if (sliderValue72 < 100) {
+    dom += 40;
+  } else if (sliderValue72 == 100) {
+    dom += 50;
+  }
+  if (sliderValue73 == 0) {
+    dom += 0;
+  }  else if (sliderValue73 < 49) {
+    dom += 10;
+  } else if (sliderValue73 == 50) {
+    dom += 20;
+  } else if (sliderValue73 < 80) {
+    dom += 30;
+  } else if (sliderValue73 < 100) {
+    dom += 40;
+  } else if (sliderValue73 == 100) {
+    dom += 50;
+  }
+  if (sliderValue74 == 0) {
+    dom += 0;
+  }  else if (sliderValue74 < 49) {
+    dom += 10;
+  } else if (sliderValue74 == 50) {
+    dom += 20;
+  } else if (sliderValue74 < 80) {
+    dom += 30;
+  } else if (sliderValue74 < 100) {
+    dom += 40;
+  } else if (sliderValue74 == 100) {
+    dom += 50;
+  }
+  if (sliderValue75 == 0) {
+    dom += 0;
+  }  else if (sliderValue75 < 49) {
+    dom += 10;
+  } else if (sliderValue75 == 50) {
+    dom += 20;
+  } else if (sliderValue75 < 80) {
+    dom += 30;
+  } else if (sliderValue75 < 100) {
+    dom += 40;
+  } else if (sliderValue75 == 100) {
+    dom += 50;
+  }
+  if (sliderValue76 == 0) {
+    dom += 0;
+  }  else if (sliderValue76 < 49) {
+    dom += 10;
+  } else if (sliderValue76 == 50) {
+    dom += 20;
+  } else if (sliderValue76 < 80) {
+    dom += 30;
+  } else if (sliderValue76 < 100) {
+    dom += 40;
+  } else if (sliderValue70 == 100) {
+    dom += 50;
+  }
+  if (sliderValue77 == 0) {
+    dom += 0;
+  }  else if (sliderValue77 < 49) {
+    dom += 10;
+  } else if (sliderValue77 == 50) {
+    dom += 20;
+  } else if (sliderValue77 < 80) {
+    dom += 30;
+  } else if (sliderValue77 < 100) {
+    dom += 40;
+  } else if (sliderValue77 == 100) {
+    dom += 50;
+  }
+  if (sliderValue78 == 0) {
+    dom += 0;
+  }  else if (sliderValue78 < 49) {
+    dom += 10;
+  } else if (sliderValue78 == 50) {
+    dom += 20;
+  } else if (sliderValue78 < 80) {
+    dom += 30;
+  } else if (sliderValue78 < 100) {
+    dom += 40;
+  } else if (sliderValue78 == 100) {
+    dom += 50;
+  }
+  if (sliderValue79 == 0) {
+    dom += 0;
+  }  else if (sliderValue79 < 49) {
+    dom += 10;
+  } else if (sliderValue79 == 50) {
+    dom += 20;
+  } else if (sliderValue79 < 80) {
+    dom += 30;
+  } else if (sliderValue79 < 100) {
+    dom += 40;
+  } else if (sliderValue79 == 100) {
+    dom += 50;
+  }
+  if (sliderValue80 == 0) {
+    dom += 0;
+  }  else if (sliderValue80 < 49) {
+    dom += 10;
+  } else if (sliderValue80 == 50) {
+    dom += 20;
+  } else if (sliderValue80 < 80) {
+    dom += 30;
+  } else if (sliderValue80 < 100) {
+    dom += 40;
+  } else if (sliderValue80 == 100) {
+    dom += 50;
+  }
+  if (sliderValue81 == 0) {
+    dom += 0;
+  }  else if (sliderValue81 < 49) {
+    dom += 10;
+  } else if (sliderValue81 == 50) {
+    dom += 20;
+  } else if (sliderValue81 < 80) {
+    dom += 30;
+  } else if (sliderValue81 < 100) {
+    dom += 40;
+  } else if (sliderValue81 == 100) {
+    dom += 50;
+  }
+  if (sliderValue82 == 0) {
+    dom += 0;
+  }  else if (sliderValue82 < 49) {
+    dom += 10;
+  } else if (sliderValue82 == 50) {
+    dom += 20;
+  } else if (sliderValue82 < 80) {
+    dom += 30;
+  } else if (sliderValue82 < 100) {
+    dom += 40;
+  } else if (sliderValue82 == 100) {
+    dom += 50;
+  }
+  if (sliderValue83 == 0) {
+    dom += 0;
+  }  else if (sliderValue83 < 49) {
+    dom += 10;
+  } else if (sliderValue83 == 50) {
+    dom += 20;
+  } else if (sliderValue83 < 80) {
+    dom += 30;
+  } else if (sliderValue83 < 100) {
+    dom += 40;
+  } else if (sliderValue83 == 100) {
+    dom += 50;
+  }
+  if (sliderValue84 == 0) {
+    dom += 0;
+  }  else if (sliderValue84 < 49) {
+    dom += 10;
+  } else if (sliderValue84 == 50) {
+    dom += 20;
+  } else if (sliderValue84 < 80) {
+    dom += 30;
+  } else if (sliderValue84 < 100) {
+    dom += 40;
+  } else if (sliderValue84 == 100) {
+    dom += 50;
+  }
+  if (sliderValue85 == 0) {
+    dom += 0;
+  }  else if (sliderValue85 < 49) {
+    dom += 10;
+  } else if (sliderValue85 == 50) {
+    dom += 20;
+  } else if (sliderValue85 < 80) {
+    dom += 30;
+  } else if (sliderValue85 < 100) {
+    dom += 40;
+  } else if (sliderValue85 == 100) {
+    dom += 50;
+  }
+  if (sliderValue86 == 0) {
+    dom += 0;
+  }  else if (sliderValue86 < 49) {
+    dom += 10;
+  } else if (sliderValue86 == 50) {
+    dom += 20;
+  } else if (sliderValue86 < 80) {
+    dom += 30;
+  } else if (sliderValue86 < 100) {
+    dom += 40;
+  } else if (sliderValue86 == 100) {
+    dom += 50;
+  }
+  if (sliderValue87 == 0) {
+    dom += 0;
+  }  else if (sliderValue87 < 49) {
+    dom += 10;
+  } else if (sliderValue87 == 50) {
+    dom += 20;
+  } else if (sliderValue87 < 80) {
+    dom += 30;
+  } else if (sliderValue87 < 100) {
+    dom += 40;
+  } else if (sliderValue87 == 100) {
+    dom += 50;
+  }
+  if (sliderValue88 == 0) {
+    dom += 0;
+  }  else if (sliderValue88 < 49) {
+    dom += 10;
+  } else if (sliderValue88 == 50) {
+    dom += 20;
+  } else if (sliderValue88 < 80) {
+    dom += 30;
+  } else if (sliderValue88 < 100) {
+    dom += 40;
+  } else if (sliderValue88 == 100) {
+    dom += 50;
+  }
+  if (sliderValue89 == 0) {
+    dom += 0;
+  }  else if (sliderValue89 < 49) {
+    dom += 10;
+  } else if (sliderValue89 == 50) {
+    dom += 20;
+  } else if (sliderValue89 < 80) {
+    dom += 30;
+  } else if (sliderValue89 < 100) {
+    dom += 40;
+  } else if (sliderValue89 == 100) {
+    dom += 50;
+  }
+  if (sliderValue90 == 0) {
+    dom += 0;
+  }  else if (sliderValue90 < 49) {
+    dom += 10;
+  } else if (sliderValue90 == 50) {
+    dom += 20;
+  } else if (sliderValue90 < 80) {
+    dom += 30;
+  } else if (sliderValue90 < 100) {
+    dom += 40;
+  } else if (sliderValue90 == 100) {
+    dom += 50;
+  }
+  if (sliderValue91 == 0) {
+    dom += 0;
+  }  else if (sliderValue91 < 49) {
+    dom += 10;
+  } else if (sliderValue91 == 50) {
+    dom += 20;
+  } else if (sliderValue91 < 80) {
+    dom += 30;
+  } else if (sliderValue91 < 100) {
+    dom += 40;
+  } else if (sliderValue91 == 100) {
+    dom += 50;
+  }
+  if (sliderValue92 == 0) {
+    dom += 0;
+  }  else if (sliderValue92 < 49) {
+    dom += 10;
+  } else if (sliderValue92 == 50) {
+    dom += 20;
+  } else if (sliderValue92 < 80) {
+    dom += 30;
+  } else if (sliderValue92 < 100) {
+    dom += 40;
+  } else if (sliderValue92 == 100) {
+    dom += 50;
+  }
+  if (sliderValue93 == 0) {
+    dom += 0;
+  }  else if (sliderValue93 < 49) {
+    dom += 10;
+  } else if (sliderValue93 == 50) {
+    dom += 20;
+  } else if (sliderValue93 < 80) {
+    dom += 30;
+  } else if (sliderValue93 < 100) {
+    dom += 40;
+  } else if (sliderValue93 == 100) {
+    dom += 50;
+  }
+  if (sliderValue94 == 0) {
+    dom += 0;
+  }  else if (sliderValue94 < 49) {
+    dom += 10;
+  } else if (sliderValue94 == 50) {
+    dom += 20;
+  } else if (sliderValue94 < 80) {
+    dom += 30;
+  } else if (sliderValue94 < 100) {
+    dom += 40;
+  } else if (sliderValue94 == 100) {
+    dom += 50;
+  }
+  if (sliderValue95 == 0) {
+    dom += 0;
+  }  else if (sliderValue95 < 49) {
+    dom += 10;
+  } else if (sliderValue95 == 50) {
+    dom += 20;
+  } else if (sliderValue95 < 80) {
+    dom += 30;
+  } else if (sliderValue95 < 100) {
+    dom += 40;
+  } else if (sliderValue95 == 100) {
+    dom += 50;
+  }
+  if (sliderValue96 == 0) {
+    dom += 0;
+  }  else if (sliderValue96 < 49) {
+    dom += 10;
+  } else if (sliderValue96 == 50) {
+    dom += 20;
+  } else if (sliderValue96 < 80) {
+    dom += 30;
+  } else if (sliderValue96 < 100) {
+    dom += 40;
+  } else if (sliderValue96 == 100) {
+    dom += 50;
+  }
+  if (sliderValue97 == 0) {
+    dom += 0;
+  }  else if (sliderValue97 < 49) {
+    dom += 10;
+  } else if (sliderValue97 == 50) {
+    dom += 20;
+  } else if (sliderValue97 < 80) {
+    dom += 30;
+  } else if (sliderValue97 < 100) {
+    dom += 40;
+  } else if (sliderValue97 == 100) {
+    dom += 50;
+  }
+  if (sliderValue98 == 0) {
+    dom += 0;
+  }  else if (sliderValue98 < 49) {
+    dom += 10;
+  } else if (sliderValue98 == 50) {
+    dom += 20;
+  } else if (sliderValue98 < 80) {
+    dom += 30;
+  } else if (sliderValue98 < 100) {
+    dom += 40;
+  } else if (sliderValue98 == 100) {
+    dom += 50;
+  }
+  if (sliderValue99 == 0) {
+    dom += 0;
+  }  else if (sliderValue99 < 49) {
+    dom += 10;
+  } else if (sliderValue99 == 50) {
+    dom += 20;
+  } else if (sliderValue99 < 80) {
+    dom += 30;
+  } else if (sliderValue99 < 100) {
+    dom += 40;
+  } else if (sliderValue99 == 100) {
+    dom += 50;
+  }
+  if (sliderValue100 == 0) {
+    dom += 0;
+  }  else if (sliderValue100 < 49) {
+    dom += 10;
+  } else if (sliderValue100 == 50) {
+    dom += 20;
+  } else if (sliderValue100 < 80) {
+    dom += 30;
+  } else if (sliderValue100 < 100) {
+    dom += 40;
+  } else if (sliderValue100 == 100) {
+    dom += 50;
+  }
+  if (sliderValue100 == 0) {
+    dom += 0;
+  }  else if (sliderValue101 < 49) {
+    dom += 10;
+  } else if (sliderValue101 == 50) {
+    dom += 20;
+  } else if (sliderValue101 < 80) {
+    dom += 30;
+  } else if (sliderValue101 < 100) {
+    dom += 40;
+  } else if (sliderValue101 == 100) {
+    dom += 50;
+  }
+  if (sliderValue102 == 0) {
+    dom += 0;
+  }  else if (sliderValue102 < 49) {
+    dom += 10;
+  } else if (sliderValue102 == 50) {
+    dom += 20;
+  } else if (sliderValue102 < 80) {
+    dom += 30;
+  } else if (sliderValue102 < 100) {
+    dom += 40;
+  } else if (sliderValue102 == 100) {
+    dom += 50;
+  }
+  if (sliderValue103 == 0) {
+    dom += 0;
+  }  else if (sliderValue103 < 49) {
+    dom += 10;
+  } else if (sliderValue103 == 50) {
+    dom += 20;
+  } else if (sliderValue103 < 80) {
+    dom += 30;
+  } else if (sliderValue103 < 100) {
+    dom += 40;
+  } else if (sliderValue103 == 100) {
+    dom += 50;
+  }
+  if (sliderValue104 == 0) {
+    dom += 0;
+  }  else if (sliderValue104 < 49) {
+    dom += 10;
+  } else if (sliderValue104 == 50) {
+    dom += 20;
+  } else if (sliderValue104 < 80) {
+    dom += 30;
+  } else if (sliderValue104 < 100) {
+    dom += 40;
+  } else if (sliderValue104 == 100) {
+    dom += 50;
+  }
+  if (sliderValue105 == 0) {
+    dom += 0;
+  }  else if (sliderValue105 < 49) {
+    dom += 10;
+  } else if (sliderValue105 == 50) {
+    dom += 20;
+  } else if (sliderValue105 < 80) {
+    dom += 30;
+  } else if (sliderValue105 < 100) {
+    dom += 40;
+  } else if (sliderValue105 == 100) {
+    dom += 50;
+  }
+  if (sliderValue106 == 0) {
+    dom += 0;
+  }  else if (sliderValue106 < 49) {
+    dom += 10;
+  } else if (sliderValue106 == 50) {
+    dom += 20;
+  } else if (sliderValue106 < 80) {
+    dom += 30;
+  } else if (sliderValue106 < 100) {
+    dom += 40;
+  } else if (sliderValue106 == 100) {
+    dom += 50;
+  }
+  if (sliderValue107 == 0) {
+    dom += 0;
+  }  else if (sliderValue107 < 49) {
+    dom += 10;
+  } else if (sliderValue107 == 50) {
+    dom += 20;
+  } else if (sliderValue107 < 80) {
+    dom += 30;
+  } else if (sliderValue107 < 100) {
+    dom += 40;
+  } else if (sliderValue107 == 100) {
+    dom += 50;
+  }
+  if (sliderValue108 == 0) {
+    dom += 0;
+  }  else if (sliderValue108 < 49) {
+    dom += 10;
+  } else if (sliderValue108 == 50) {
+    dom += 20;
+  } else if (sliderValue108 < 80) {
+    dom += 30;
+  } else if (sliderValue108 < 100) {
+    dom += 40;
+  } else if (sliderValue108 == 100) {
+    dom += 50;
+  }
+  if (sliderValue109 == 0) {
+    dom += 0;
+  }  else if (sliderValue109 < 49) {
+    dom += 10;
+  } else if (sliderValue109 == 50) {
+    dom += 20;
+  } else if (sliderValue109 < 80) {
+    dom += 30;
+  } else if (sliderValue109 < 100) {
+    dom += 40;
+  } else if (sliderValue109 == 100) {
+    dom += 50;
+  }
+  if (sliderValue110 == 0) {
+    dom += 0;
+  }  else if (sliderValue110 < 49) {
+    dom += 10;
+  } else if (sliderValue110 == 50) {
+    dom += 20;
+  } else if (sliderValue110 < 80) {
+    dom += 30;
+  } else if (sliderValue110 < 100) {
+    dom += 40;
+  } else if (sliderValue110 == 100) {
+    dom += 50;
+  }
+  console.log(dom);
+  resultsBar.style.width = `${dom}%`;
+  resultsValue.textContent = `${dom}%`;
+}
+
+const sliderContainers = document.querySelectorAll('.slider-container');
+const nextBtn = document.getElementById('next-btn');
+let currentContainer = 0;
+var progressFill = document.querySelector(".progress-fill");
+var progress = 0;
+
+// Show the current container and hide the others
+function showCurrentContainer() {
+  for (let i = 0; i < sliderContainers.length; i++) {
+    sliderContainers[i].classList.remove('visible');
+  }
+  sliderContainers[currentContainer].classList.add('visible');
+}
+// Set up event listener for the next button
+nextBtn.addEventListener('click', function() {
+  currentContainer++;
+  window.scrollTo(0, 0);
+  progress += 10;
+  progressFill.style.width = progress + "%";
+  if (currentContainer >= 9) {
+    // If there are no more containers, next button becoms results
+    nextBtn.textContent = 'Results';
+	nextBtn.addEventListener('click', function() {
+	myFunction();
+	});
+	}
+  else {
+  showCurrentContainer();
+  }
+});
+
+</script>
+</body>
+</html>
