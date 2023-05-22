@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TEST</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			background: linear-gradient(to bottom right, #FF0099, #493240);
+			background-size: 100%;background-repeat: no-repeat;
+		}
+.box {
+  width: 300px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 20px;
+  text-align: center;
+  font-weight: 900;
+  color: #000000;
+  font-family: arial;
+  position:relative;
+}
+.sb1:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 12px solid #fff;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #fff;
+  border-bottom: 10px solid transparent;
+  right: -20px;
+  bottom: 50px;
+}
+.sb2:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 12px solid transparent;
+  border-right: 10px solid #fff;
+  border-top: 10px solid #fff;
+  border-bottom: 10px solid transparent;
+  left: -19px;
+  bottom: 50px;
+}
+.slider-container {
+  display: none;
+}
+.visible {
+  display: block;
+}
+.slider-wrapper {
+  display: flex;
+  align-items: center;
+text-align:center;
+}
+.slider-wrapper:not(:last-child) {
+  margin-bottom: 10px;
+}
+.slider-wrapper h3 {
+  margin-right: 10px;
+  font-size: 18px;
+  color: #000000;
+}
+/* Base styles for the range slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 50%;
+  height: 20px;
+  margin: 0;
+  padding: 30px;
+  background: transparent;
+}
+
+/* Styling for the thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  top: -7px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* Gradient styling for the track */
+input[type="range"]::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, #333333, #dd1818);
+  height: 20px;
+  border-radius: 15px;
+}
+
+/* Styling for the track fill */
+input[type="range"]::-webkit-slider-thumb {
+  background: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.results {
+  width: 100%;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 5px;
+  position: relative;
+}
+
+.results-bar {
+  width: 0;
+  height: 100%;
+  background-color: #007bff;
+  border-radius: 5px;
+}
+
+.results-value {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-weight: bold;
+}
+
+#next-btn {
+	visibility: visible;
+	}
+button {
+			display: block;
+			margin: 20px auto 0;
+			padding: 10px 20px;
+			border-radius: 5px;
+			border: none;
+			background: #fff;
+			color: #000;
+			font-size: 1.5em;
+			cursor: pointer;
+			margin-bottom: 20px;
+		}
+		
+button:hover {
+			background: #000;
+			color: #fff;
+		}
+h2 {
+	color: #fff;
+
+}
+		.progress {
+			width: 500px;
+			height: 20px;
+			background-color: #ddd;
+			border-radius: 10px;
+			position: relative;
+			margin: auto;
+			margin-top: 10px;	
+		}
+		.progress-fill {
+			height: 100%;
+			background-color: #007bff;
+			border-radius: 10px;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+p {
+	color: #fff;
+	font-size: 20px
+}
+label {
+	color: #fff;
+	font-size: 20px
+}
+.results {
+  width: 100%;
+  position: relative;
+}
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: inline-block;
+}
+
+input[type="checkbox"][id^="myCheckbox"] {
+  display: none;
+}
+
+label {
+  border: 1px solid #fff;
+  padding: 10px;
+  display: block;
+  position: relative;
+  margin: 10px;
+  cursor: pointer;
+}
+
+label:before {
+  background-color: white;
+  color: white;
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  border: 1px solid grey;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 28px;
+  transition-duration: 0.4s;
+  transform: scale(0);
+}
+
+label img {
+  height: 150px;
+  width: 150px;
+  transition-duration: 0.2s;
+  transform-origin: 50% 50%;
+}
+
+:checked + label {
+  border-color: #ddd;
+}
+
+:checked + label:before {
+  content: "✓";
+  background-color: grey;
+  transform: scale(1);
+}
+
+:checked + label img {
+  transform: scale(0.9);
+  /* box-shadow: 0 0 5px #333; */
+  z-index: -1;
+}
+    /* Styling for radio buttons */
+    input[type="radio"] {
+      display: none;
+    }
+    
+    /* Styling for labels */
+    label {
+      font-size: 40px;
+      display: inline-block;
+      padding: 5px 10px;
+      cursor: pointer;
+      border: 2px solid black; /* Add border */
+      text-align: center; /* Center align the labels */
+    }
+    
+    /* Styling for selected answer */
+    input[type="radio"]:checked + label {
+      border-color: white; /* Change border color */
+    }
+
+    /* Styling for table */
+    table {
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid black;
+    }
+
+    /* Styling for container */
+    .container {
+      display: none;
+    }
+
+    .container.active {
+      display: block;
+    }
+
+    .btn-container {
+      margin-top: 20px;
+    }
+
+    /* Styling for result container */
+    .result-container {
+      margin-top: 20px;
+      border: 1px solid black;
+      padding: 10px;
+    }
+	    .slider {
+			width: 500px;
+			height: 20px;
+			background-color: #ddd;
+			border-radius: 10px;
+			position: relative;
+			margin: auto;
+			margin-top: 10px;	
+	  
+    }
+
+    .progress {
+      height: 100%;
+      background-color: #ff0099;
+      border-radius: 10px;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    </style>
+  </head>
+  <body> 
+  <div class="slider">
+    <div class="progress" id="progress" style="width: 0;"></div>
+  </div>
+<div class="container active">
+ 
+	    <div class="btn-container">
+      <button onclick="showNextContainer()">NEXT</button>
+    </div>
+</div>
+<div class="container">
+ 
+
+      <div class="btn-container">
+      <button onclick="showNextContainer()">NEXT</button>
+    </div>
+</div>
+<div class="container">
+ 
+
+    <div class="btn-container">
+      <button onclick="showNextContainer()">NEXT</button>
+    </div>
+</div>
+<div class="container">
+ 
+      <div class="btn-container">
+      <button onclick="showNextContainer()">NEXT</button>
+    </div>
+</div>
+</div>
+<div class="container">
+ 
+     <div class="btn-container">
+      <button onclick="showNextContainer()">NEXT</button>
+    </div>
+</div>
+</div>
+<div class="container">
+  <h2>EXEBISIONISM/VOYEUR</h2>
+     <div class="btn-container">
+      <button onclick="showNextContainer()">NEXT</button>
+    </div>
+</div>
+</div>
+<div class="container">
+  <h2>FANTASIES/LIMITS</h2>
+     <div class="btn-container">
+      <button onclick="showNextContainer()">NEXT</button>
+    </div>
+</div>
+
+<div class="container">
+  <h2>FANTASIES/LIMITS</h2>
+     <div class="btn-container">
+      <button onclick="showNextContainer()">NEXT</button>
+    </div>
+	</div>
+<div class="container">
+  <h2>GENERAL</h2>
+<ul>
+<p>Which cock is bebe most likely to take? (You can chose multiple)</p>
+  <li>
+    <input type="checkbox" id="myCheckbox1" />
+    <label for="myCheckbox1"><img src="https://titis.org/pics/uploads/posts/2022-08/1660791786_1-titis-org-p-cock-closeup-erotika-1.jpg" /></label>
+  </li>
+  <li>
+
+    <input type="checkbox" id="myCheckbox2" />
+    <label for="myCheckbox2"><img src="https://i2.wp.com/25.media.tumblr.com/tumblr_mayd57Uga41runyu3o1_500.jpg" /></label>
+  </li>
+  <li>
+
+    <input type="checkbox" id="myCheckbox3" />
+    <label for="myCheckbox3"><img src="https://a.xxxlibz.com/wp-content/uploads/2017/07/1964014-3301-xxxlibz.com.JPG" /></label>
+  </li>
+    <li>
+
+    <input type="checkbox" id="myCheckbox4" />
+    <label for="myCheckbox4"><img src="img/my.jpg" /></label>
+  </li>
+</ul>
+<ul>
+<p>Which female sex toy? (You can chose multiple)</p>
+  <li>
+    <input type="checkbox" id="myCheckbox5" />
+    <label for="myCheckbox5"><img src="https://aio.lv/img/cache/product/4229710/51348466_extra_large.webp" /></label>
+  </li>
+  <li>
+
+    <input type="checkbox" id="myCheckbox6" />
+    <label for="myCheckbox6"><img src="https://cdn.shopify.com/s/files/1/0420/9924/5211/products/Magic-Wand-Massager-Kandid-Blue-P1_640x.jpg?v=1599785360" /></label>
+  </li>
+  <li>
+
+    <input type="checkbox" id="myCheckbox7" />
+    <label for="myCheckbox7"><img src="https://cdn.shopify.com/s/files/1/0619/5766/9120/products/trc-001hp_pink_classic-vibrator-02_1024x1024.jpg?v=1663336396" /></label>
+  </li>
+    <li>
+
+    <input type="checkbox" id="myCheckbox8" />
+    <label for="myCheckbox8"><img src="https://m.media-amazon.com/images/I/51R-STvMd7L.jpg" /></label>
+  </li>
+     <li>
+
+    <input type="checkbox" id="myCheckbox9" />
+    <label for="myCheckbox9"><img src="https://m.media-amazon.com/images/I/61TcAyW9uQL._AC_SL1500_.jpg" /></label>
+  </li>
+    <li>
+
+    <input type="checkbox" id="myCheckbox10" />
+    <label for="myCheckbox10"><img src="https://img.joomcdn.net/6bcca04690ffce2473553bea2dd494f552b95db6_original.jpeg" /></label>
+  </li>
+    <li>
+
+    <input type="checkbox" id="myCheckbox11" />
+    <label for="myCheckbox11"><img src="https://ae01.alicdn.com/kf/H027c5733629a44cbab2dd21c4b565f25g/Wireless-Remote-Control-Vibrator-Vibrating-Vibro-Egg-for-Women-Kegel-Trainer-Exerciser-Vagina-Balls-ben-10.jpg" /></label>
+  </li>
+    <li>
+
+    <input type="checkbox" id="myCheckbox12" />
+    <label for="myCheckbox12"><img src="https://m.media-amazon.com/images/I/51VD2jgc0DL.jpg" /></label>
+  </li>
+</ul>
+<ul>
+<p>Which male sex toy? (You can chose multiple)</p>
+  <li>
+    <input type="checkbox" id="myCheckbox13" />
+    <label for="myCheckbox13"><img src="https://www.adameve.com/cms/image/605593-669743-350x350.jpg" /></label>
+  </li>
+  <li>
+
+    <input type="checkbox" id="myCheckbox14" />
+    <label for="myCheckbox14"><img src="https://www.nepal.ubuy.com/productimg/?image=aHR0cHM6Ly9tLm1lZGlhLWFtYXpvbi5jb20vaW1hZ2VzL0kvNDFrSDhLVlM1RFMuX0FDX1NMMTIwMF8uanBn.jpg" /></label>
+  </li>
+  <li>
+
+    <input type="checkbox" id="myCheckbox15" />
+    <label for="myCheckbox15"><img src="https://m.media-amazon.com/images/I/418-0FOdjgL._AC_.jpg" /></label>
+  </li>
+    <li>
+
+    <input type="checkbox" id="myCheckbox16" />
+    <label for="myCheckbox16"><img src="https://m.media-amazon.com/images/I/61PAtHdHWRL.jpg" /></label>
+  </li>
+</ul>
+<ul>
+<p>Which pussy? (You can chose multiple)</p>
+  <li>
+    <input type="checkbox" id="myCheckbox17" />
+    <label for="myCheckbox17"><img src="https://cdni.pornpics.com/460/7/576/21391857/21391857_041_91d9.jpg" /></label>
+  </li>
+  <li>
+
+    <input type="checkbox" id="myCheckbox18" />
+    <label for="myCheckbox18"><img src="https://cdni.pornpics.com/460/1/262/86230896/86230896_013_8ed6.jpg" /></label>
+  </li>
+  <li>
+
+    <input type="checkbox" id="myCheckbox20" />
+    <label for="myCheckbox20"><img src="https://cdni.perfectpussypics.com/300/1/353/77450079/77450079_015_8e9f.jpg" /></label>
+  </li>
+    <li>
+
+    <input type="checkbox" id="myCheckbox21" />
+    <label for="myCheckbox21"><img src="https://m.media-amazon.com/images/I/51R-STvMd7L.jpg" /></label>
+  </li>
+</ul>
+<ul>
+<p>Which pussy? (You can chose multiple)</p>
+  <li>
+    <input type="checkbox" id="myCheckbox17" />
+    <label for="myCheckbox17"><img src="https://cdni.pornpics.com/460/7/576/21391857/21391857_041_91d9.jpg" /></label>
+  </li>
+  <li>
+
+    <input type="checkbox" id="myCheckbox18" />
+    <label for="myCheckbox18"><img src="https://cdni.pornpics.com/460/1/262/86230896/86230896_013_8ed6.jpg" /></label>
+  </li>
+  <li>
+
+    <input type="checkbox" id="myCheckbox20" />
+    <label for="myCheckbox20"><img src="https://cdni.perfectpussypics.com/300/1/353/77450079/77450079_015_8e9f.jpg" /></label>
+  </li>
+    <li>
+
+    <input type="checkbox" id="myCheckbox21" />
+    <label for="myCheckbox21"><img src="https://m.media-amazon.com/images/I/51R-STvMd7L.jpg" /></label>
+  </li>
+</ul>
+ <div class="btn-container">
+      <button onclick="showResults()">RESULTS</button>
+    </div>
+</div>
+<div id="results-container">
+
+	</div>
+
+<script>
+	  var progressElement = document.getElementById('progress');
+    var progressValue = 0;
+     function showNextContainer() {
+      var currentContainer = document.querySelector('.container.active');
+      currentContainer.classList.remove('active');
+
+      var nextContainer = currentContainer.nextElementSibling;
+      nextContainer.classList.add('active');
+
+	   progressValue += 10;
+      progressElement.style.width = progressValue + '%';
+    }
+    function showResults() {
+	var currentContainer = document.querySelector('.container.active');
+      currentContainer.classList.remove('active');
+
+      var nextContainer = currentContainer.nextElementSibling;
+      nextContainer.classList.add('active');
+	
+      var q1AnswerStudent1 = document.querySelector('input[name="q1"]:checked').value;
+      var q2AnswerStudent1 = document.querySelector('input[name="q2"]:checked').value;
+
+      student1Answers = [q1AnswerStudent1, q2AnswerStudent1];
+
+      var q1AnswerStudent2 = document.querySelector('input[name="q7"]:checked').value;
+      var q2AnswerStudent2 = document.querySelector('input[name="q8"]:checked').value;
+
+      student2Answers = [q1AnswerStudent2, q2AnswerStudent2];
+
+      var questions = ["I'd like to have 3way.", "I'd like to go to a strip club."]; // Random questions
+
+      var table = "<table>";
+      table += "<tr><th></th><th>Babyshark</th><th>Bebe</th></tr>";
+
+      for (var i = 0; i < questions.length; i++) {
+        var question = questions[i];
+
+        if (student1Answers[i] === student2Answers[i]) {
+          table += "<tr><td>" + question + "</td><td>" + student1Answers[i] + "</td><td>" + student2Answers[i] + "</td></tr>";
+        }
+      }
+
+      table += "</table>";
+
+      var resultContainer = document.createElement('div');
+      resultContainer.classList.add('result-container');
+      resultContainer.innerHTML = table;
+
+      var resultsContainer = document.getElementById('results-container');
+      resultsContainer.innerHTML = ""; // Clear previous container
+
+      if (resultContainer.querySelector('tr')) {
+        resultsContainer.appendChild(resultContainer);
+      }
+    }
+</script>
+</body>
+</html>
