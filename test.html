@@ -774,45 +774,46 @@ label img {
     function showResults() {
 	var currentContainer = document.querySelector('.container.active');
       currentContainer.classList.remove('active');
+    function showSliders() {
+      var container = document.getElementById('results-container');
 
-      var nextContainer = currentContainer.nextElementSibling;
-      nextContainer.classList.add('active');
-	
-      var q1AnswerStudent1 = document.querySelector('input[name="q1"]:checked').value;
-      var q2AnswerStudent1 = document.querySelector('input[name="q2"]:checked').value;
+      // Slider 1
+      var slider1 = document.createElement('div');
+      slider1.className = 'slider';
 
-      student1Answers = [q1AnswerStudent1, q2AnswerStudent1];
+      var progress1 = document.createElement('div');
+      progress1.className = 'progress';
+      progress1.style.width = '66%';
 
-      var q1AnswerStudent2 = document.querySelector('input[name="q7"]:checked').value;
-      var q2AnswerStudent2 = document.querySelector('input[name="q8"]:checked').value;
+      slider1.appendChild(progress1);
 
-      student2Answers = [q1AnswerStudent2, q2AnswerStudent2];
+      container.appendChild(slider1);
 
-      var questions = ["I'd like to have 3way.", "I'd like to go to a strip club."]; // Random questions
+      // Slider 2
+      var slider2 = document.createElement('div');
+      slider2.className = 'slider';
 
-      var table = "<table>";
-      table += "<tr><th></th><th>Babyshark</th><th>Bebe</th></tr>";
+      var progress2 = document.createElement('div');
+      progress2.className = 'progress';
+      progress2.style.width = '70%';
 
-      for (var i = 0; i < questions.length; i++) {
-        var question = questions[i];
+      slider2.appendChild(progress2);
 
-        if (student1Answers[i] === student2Answers[i]) {
-          table += "<tr><td>" + question + "</td><td>" + student1Answers[i] + "</td><td>" + student2Answers[i] + "</td></tr>";
-        }
-      }
+      container.appendChild(slider2);
 
-      table += "</table>";
+      // Slider Total
+      var sliderTotal = document.createElement('div');
+      sliderTotal.className = 'slider';
 
-      var resultContainer = document.createElement('div');
-      resultContainer.classList.add('result-container');
-      resultContainer.innerHTML = table;
+      var progressTotal = document.createElement('div');
+      progressTotal.className = 'progress';
+      progressTotal.style.width = '72%';
 
-      var resultsContainer = document.getElementById('results-container');
-      resultsContainer.innerHTML = ""; // Clear previous container
+      sliderTotal.appendChild(progressTotal);
 
-      if (resultContainer.querySelector('tr')) {
-        resultsContainer.appendChild(resultContainer);
-      }
+      container.appendChild(sliderTotal);
+    }
+    
     }
 </script>
 </body>
